@@ -1,0 +1,12 @@
+packages: ./*.cabal
+
+-- Allow building with newer base versions
+allow-newer: base
+
+-- Optimization for development
+optimization: 0
+
+-- Enable profiling options (optional, uncomment if needed)
+-- profiling: True
+-- library-profiling: True
+

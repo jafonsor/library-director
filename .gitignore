@@ -1,0 +1,35 @@
+# Haskell / Cabal
+dist-newstyle/
+*.hi
+*.o
+*.dyn_hi
+*.dyn_o
+.ghc.environment.*
+cabal.project.local
+cabal.project.local~
+.cabal-sandbox/
+cabal.sandbox.config
+
+# Stack
+.stack-work/
+stack.yaml.lock
+
+# Nix
+result
+result-*
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
