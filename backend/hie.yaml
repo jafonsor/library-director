@@ -1,0 +1,6 @@
+cradle:
+  cabal:
+    - path: "src"
+      component: "lib:library-director"
+    - path: "src-main"
+      component: "exe:library-director"

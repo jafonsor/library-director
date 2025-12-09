@@ -17,6 +17,7 @@ stack.yaml.lock
 # Nix
 result
 result-*
+.direnv/
 
 # IDE
 .idea/

@@ -32,6 +32,53 @@ This spawns a new shell with all development tools available:
 
 All tools are pinned to specific versions via `flake.lock`, ensuring reproducible builds across machines. When you `exit` the shell, you return to your normal environment.
 
+### IDE Integration (Errors & Warnings in Editor)
+
+For HLS to provide inline errors, warnings, and completions in your editor, it needs access to the Nix environment. Two options:
+
+#### Option A: Launch Editor from Nix Shell
+
+```bash
+nix develop
+cursor .   # or: code .
+```
+
+#### Option B: Use direnv (Recommended)
+
+This project includes an `.envrc` file. With direnv, the Nix environment loads automatically when you open the project.
+
+1. Install direnv (and optionally nix-direnv for faster loading):
+
+   ```bash
+   # Using Nix (recommended)
+   nix profile install nixpkgs#direnv nixpkgs#nix-direnv
+
+   # Or using Homebrew
+   brew install direnv
+   ```
+
+2. Add to `~/.zshrc` (or `~/.bashrc`):
+
+   ```bash
+   eval "$(direnv hook zsh)"   # or: eval "$(direnv hook bash)"
+
+   # If you installed nix-direnv, add this too:
+   source $HOME/.nix-profile/share/nix-direnv/direnvrc
+   ```
+
+3. Allow the project's `.envrc`:
+
+   ```bash
+   cd /path/to/library-director
+   direnv allow
+   ```
+
+4. Install the **direnv** extension in Cursor/VS Code
+
+5. Reload the editor window
+
+Now HLS will automatically have access to GHC and your project's dependencies, showing errors inline as you type.
+
 ### Starting the Server
 
 From within the `nix develop` shell:

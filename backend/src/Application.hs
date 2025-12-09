@@ -3,6 +3,7 @@
 
 module Application
   ( App(..)
+  , appName  -- generated lens
   , AppHandler
   , appInit
   ) where
@@ -33,6 +34,7 @@ data App = App
   }
 
 makeLenses ''App
+
 
 ------------------------------------------------------------------------------
 -- | Convenience type alias for handlers in this application
