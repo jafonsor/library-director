@@ -90,6 +90,24 @@ cabal run library-director
 
 The server will start on `http://localhost:8000`.
 
+### Live Reload (Development)
+
+For automatic recompilation and server restart on file save:
+
+```bash
+cd backend
+find src src-main -name '*.hs' | entr -r cabal run
+```
+
+This will:
+1. Watch for changes to `.hs` files
+2. Kill the current server
+3. Rebuild and restart the server
+
+The browser will automatically reload when the server restarts (via the dev reload script in `DevReload.hs`).
+
+**Note:** `entr` is included in the Nix dev shell. The `-r` flag ensures the previous server is killed before restarting.
+
 ### API Endpoints
 
 | Method | Endpoint      | Description    |

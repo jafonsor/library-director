@@ -29,11 +29,15 @@
             # Development tools
             zlib
             pkg-config
+            entr
           ];
 
           shellHook = ''
             echo "🚀 Library Director development environment"
-            echo "Run 'cd backend && cabal run' to start the server"
+            echo ""
+            echo "Commands:"
+            echo "  cd backend && cabal run                                    - Start server"
+            echo "  cd backend && find src src-main -name '*.hs' | entr -r cabal run  - Live reload"
           '';
         };
 
